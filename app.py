@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue Aug  9 13:18:31 2022
-
-@author: shilp
 """
 
 
@@ -123,9 +120,6 @@ def predict_region(img,model) :
 
 st.title("Image Forgery Detection (Copy-Move Forgery Detection)")
 st.header("Upload a image to get whether image is forged or pristine")
-st.markdown("Blog :- For Detailed explanation for this project from end to end kindly check my blog on this   [link](https://medium.com/@skkarn0207/image-forgery-detection-copy-move-forgery-detection-72c8cdd23b4f)")
-st.markdown("Demo Video :-Please have a look to this demo video which will guide you how to use this webpage  [link](https://www.youtube.com/watch?v=ZZO4lCwoAJM)")
-st.markdown(" Note :- Please use low quality images as dataset on which this model is trained on consist of low quality images. Thankyou")
 # To View Uploaded Image
 image_file = st.file_uploader("Upload Images", type=["png","jpg"])
 # You don't have handy image 
@@ -144,20 +138,15 @@ if bool(image_file)==True :
         st.title("This is a fake image")
         predi=predict_region(image_file,loaded_model)
         st.image(predi)
-        st.write("##### NOTE : Black region is part of image where original image may be tempered Please have a close look on these regions . Thankyou ❤️") 
+        st.write("##### NOTE : Black region is part of image where original image may be tempered Please have a close look on these regions") 
         
         
 else :
     ran_imageid=['Au_ani_00043','Au_sec_00040','Au_sec_30730','Tp_D_CRN_M_N_nat10129_cha00086_11522','Tp_D_CRN_S_N_cha10130_art00092_12187']
     st.text("")
     st.text("")
-    st.text("You can download some sample images by clicking on the below links :")
-    st.write("[link](https://drive.google.com/file/d/1pGge7SoSe3g89N1dwDnGXpAOVxw4RJac/view?usp=sharing)")
-    st.write("[link](https://drive.google.com/file/d/1bsgEQcLXjxOcdBMFNP7NRmOFhauPpL4K/view?usp=sharing)")
-    st.write("[link](https://drive.google.com/file/d/1tC5cO1_26X2cQTeCrkV2hI9F41fig_6c/view?usp=sharing)")
     st.text("")
     st.text("")
-    st.markdown("OOPS !!!!!!!!!! You are not ready with some images 😬. Don't worry i have some images for you click on the below button and it will predict whether random image is pristine or forged from a set of images. 😎")
     if st.button('Generate a random image') :
         ran_num=np.random.randint(0,len(ran_imageid))
         img_static_path=str(ran_imageid[ran_num])+'.jpg'
@@ -175,6 +164,7 @@ else :
         else :
             st.title("This is a fake image")
             st.image(predi)
-            st.write("##### NOTE : Black region is part of image where original image may be tempered Please have a close look on these regions . Thankyou ❤️") 
+            st.write("##### NOTE : Black region is part of image where original image may be tempered have a close look on these regions ") 
+
 
     
